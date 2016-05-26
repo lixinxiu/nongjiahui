@@ -24,6 +24,8 @@
 
 - (IBAction)clickLeftBtn:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
 
 @end
 
@@ -62,10 +64,10 @@
     return cell;
 }
 
-//隐藏状态栏
-- (BOOL) prefersStatusBarHidden{
-    return YES;
-}
+////隐藏状态栏
+//- (BOOL) prefersStatusBarHidden{
+//    return YES;
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -85,7 +87,42 @@
     HeaderView *headerView = [HeaderView headerView];
     self.tableView.tableHeaderView = headerView;
     
-    self.loginSign = 1;
+    //self.loginSign = 1;
+    
+    CGFloat btnW = 50;
+    CGFloat btnH = 40;
+    CGFloat btnY = 0;
+    
+    for (int i = 0; i < 13; i++) {
+        UIButton *btn = [[UIButton alloc]init];
+        
+//        NSString *imgName = [NSString stringWithFormat:@"%d.jpg",i];
+//        [btn setImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
+        
+        NSArray *class = [NSArray arrayWithObjects:@"精选",@"本地",@"农资",@"农机",@"新闻",@"行情",@"社会",@"健康",@"娱乐",@"科技",@"农民日报",@"家庭农场",@"农产品",nil];
+        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [btn setTitle:class[i] forState:UIControlStateNormal];
+        
+        [btn addTarget:self action:@selector(ClickClassBtn:) forControlEvents:UIControlEventTouchUpInside];
+        
+        btn.enabled = NO;
+        
+        CGFloat btnX = i *btnW;
+        btn.frame = CGRectMake(btnX, btnY, btnW, btnH);
+        [self.scrollView addSubview:btn];
+    }
+    
+    CGFloat maxW = 50 * 13;
+    self.scrollView.contentSize = CGSizeMake(maxW, 0);
+    
+    self.scrollView.pagingEnabled = YES;
+    
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+
+}
+
+- (void) ClickClassBtn:(id)sender{
+    NSLog(@"点击分类");
 }
 
 //CZFooterView的代理方法
@@ -98,7 +135,7 @@
     model.attention = @"围观0";
     model.source = @"中国农机网";
     model.time = @"21分钟前";
-    model.image = @"大暑.jpg";
+    model.image = @"4.png";
     
     //把模型对象添加到控制器的goods集合当中
     [self.news addObject:model];

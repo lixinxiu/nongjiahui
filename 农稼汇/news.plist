@@ -12,7 +12,7 @@
 		<key>time</key>
 		<string>5分钟前</string>
 		<key>image</key>
-		<string>立夏.jpg</string>
+		<string>4.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
@@ -24,7 +24,7 @@
 		<key>time</key>
 		<string>1分钟前</string>
 		<key>image</key>
-		<string>小满.jpg</string>
+		<string>5.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
@@ -36,7 +36,7 @@
 		<key>time</key>
 		<string>1分钟前</string>
 		<key>image</key>
-		<string>芒种.jpg</string>
+		<string>6.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
@@ -48,7 +48,7 @@
 		<key>time</key>
 		<string>7分钟前</string>
 		<key>image</key>
-		<string>夏至.jpg</string>
+		<string>7.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
@@ -60,7 +60,7 @@
 		<key>time</key>
 		<string>21分钟前</string>
 		<key>image</key>
-		<string>小暑.jpg</string>
+		<string>8.png</string>
 	</dict>
 </array>
 </plist>

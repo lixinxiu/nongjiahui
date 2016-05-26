@@ -34,10 +34,10 @@
 - (void) setScrollView:(UIScrollView *)scrollView{
     _scrollView = scrollView;
     CGFloat imgW = 280;
-    CGFloat imgH = 140;
+    CGFloat imgH = 120;
     CGFloat imgY = 0;
     
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 3; i++) {
         UIImageView *imgView = [[UIImageView alloc]init];
         NSString *imgName = [NSString stringWithFormat:@"%d.png",i];
         imgView.image = [UIImage imageNamed:imgName];
@@ -48,14 +48,14 @@
         [self.scrollView addSubview:imgView];
     }
     
-    CGFloat maxW = self.scrollView.frame.size.width * 5;
+    CGFloat maxW = self.scrollView.frame.size.width * 3;
     self.scrollView.contentSize = CGSizeMake(maxW, 0);
     
     self.scrollView.pagingEnabled = YES;
     
     self.scrollView.showsHorizontalScrollIndicator = NO;
     
-    self.pageControl.numberOfPages = 5;
+    self.pageControl.numberOfPages = 3;
     
     self.pageControl.currentPage = 0;
     

@@ -23,6 +23,8 @@
 //}
 
 - (IBAction)backToMain {
-    [self.navigationController popViewControllerAnimated:YES];
+    UIStoryboard *story=[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    UIViewController *main=[story instantiateViewControllerWithIdentifier:@"zhuye"];
+    [self presentModalViewController:main animated:YES];
 }
 @end

@@ -110,6 +110,8 @@
         CGFloat btnX = i *btnW;
         btn.frame = CGRectMake(btnX, btnY, btnW, btnH);
         [self.scrollView addSubview:btn];
+        
+        [self particularClick];
     }
     
     CGFloat maxW = 50 * 13;
@@ -163,6 +165,29 @@
 }
 
 - (IBAction)clickLeftBtn:(id)sender {
+}
+
+
+#pragma mark - Tap 点击
+-(void) particularClick{
+    /*一个手指单击*/
+    //初始化
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(SingleTap:)];
+    //点击次数
+    tap.numberOfTapsRequired = 1;
+    //使用手指数
+    tap.numberOfTouchesRequired = 1;
+    //添加手势
+    [self.view addGestureRecognizer:tap];
+}
+
+//一个手指单击回调函数
+-(void)SingleTap:(UITapGestureRecognizer *)tap{
+    NSLog(@"进入详情界面");
+    UIStoryboard *story=[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    UIViewController *detail=[story instantiateViewControllerWithIdentifier:@"Detail"];
+    [self presentModalViewController:detail animated:YES];
+    
 }
 
 @end

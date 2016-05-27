@@ -41,7 +41,6 @@
     self.lblSource.text = [NSString stringWithFormat:@"%@", news.source];
     self.lblTime.text = [NSString stringWithFormat:@"%@", news.time];
     self.lblImage.image = [UIImage imageNamed:news.image];
-    [self particularClick];
 }
 
 - (void)awakeFromNib {
@@ -56,22 +55,5 @@
 }
 
 
-#pragma mark - Tap 点击
--(void) particularClick{
-    /*一个手指单击*/
-    //初始化
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(SingleTap:)];
-    //点击次数
-    tap.numberOfTapsRequired = 1;
-    //使用手指数
-    tap.numberOfTouchesRequired = 1;
-    //添加手势
-    [self.contentView addGestureRecognizer:tap];
-}
-
-//一个手指单击回调函数
--(void)SingleTap:(UITapGestureRecognizer *)tap{
-    NSLog(@"进入详情界面");
-}
 
 @end
